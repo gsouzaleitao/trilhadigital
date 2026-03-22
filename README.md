@@ -70,7 +70,7 @@ Pedagoga · Especialista em EaD e Tecnologias Educacionais
 Universidade de Vassouras · Vassouras/RJ
 
 📧 gsouzaleitao@gmail.com  
-📱 (24) 9 XXXX-XXXX  
+📱 (24) 9 99125813  
 📍 Vassouras/RJ — Atendimento online e presencial
 
 ---
@@ -78,4 +78,4 @@ Universidade de Vassouras · Vassouras/RJ
 ## 📄 Licença
 
 Este portfólio e seus conteúdos são de autoria exclusiva de Glenda Leitão Cople.  
-Todos os direitos reservados © 2025.
+Todos os direitos reservados © 2026.
