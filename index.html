@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio - Trilha Digital TDPE | Glenda Leitão Cople</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #f7f3ee;
+  color: #1c1410;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ── TOKENS ── */
+:root {
+  --ink:       #1c1410;
+  --ink-2:     #4a3f37;
+  --ink-3:     #7a6d65;
+  --parch:     #f7f3ee;
+  --parch-2:   #ede6db;
+  --parch-3:   #e2d8cb;
+  --amber:     #c4622a;
+  --amber-lt:  #e07b39;
+  --amber-bg:  rgba(196,98,42,0.08);
+  --slate:     #1e293b;
+  --indigo:    #4338ca;
+  --teal:      #0f766e;
+  --border:    #d6cfc5;
+  --shadow-sm: 0 2px 8px rgba(28,20,16,.07);
+  --shadow-md: 0 6px 24px rgba(28,20,16,.11);
+  --shadow-lg: 0 16px 48px rgba(28,20,16,.14);
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+}
+
+/* ── PRINT ── */
+@media print {
+  body { background: #fff; font-size: 13px; }
+  .no-print { display: none !important; }
+  .page-break { page-break-before: always; }
+  section { break-inside: avoid; }
+}
+
+/* ─────────────────────────────────────────
+   COVER / HERO
+───────────────────────────────────────── */
+.cover {
+  background: linear-gradient(160deg, #1c1410 0%, #2d1f17 55%, #1e293b 100%);
+  color: #f7f3ee;
+  padding: 64px 40px 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: 
+    radial-gradient(ellipse 680px 480px at 80% 20%, rgba(196,98,42,.16) 0%, transparent 65%),
+    radial-gradient(ellipse 400px 300px at 15% 85%, rgba(67,56,202,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cover::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196,98,42,.5), rgba(224,123,57,.7), rgba(196,98,42,.5), transparent);
+}
+
+/* texture lines */
+.cover-texture {
+  position: absolute; inset: 0; pointer-events: none; opacity: .04;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 28px, rgba(247,243,238,.6) 28px, rgba(247,243,238,.6) 29px
+  );
+}
+
+.cover-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #c4b5fd;
+  margin-bottom: 32px;
+}
+
+.cover-service-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 6vw, 62px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 8px;
+  color: #f7f3ee;
+}
+
+.cover-service-name em {
+  font-style: normal;
+  color: #fbbf24;
+}
+
+.cover-acronym {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: rgba(196,98,42,.9);
+  letter-spacing: .14em;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.cover-tagline {
+  font-size: 17px;
+  color: rgba(247,243,238,.72);
+  max-width: 520px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+
+.cover-author-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.cover-avatar {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c4622a, #4338ca);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; color: #fff; font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(196,98,42,.35);
+}
+
+.cover-author-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #f7f3ee;
+  margin-bottom: 3px;
+}
+
+.cover-author-role {
+  font-size: 13px;
+  color: rgba(247,243,238,.55);
+  font-weight: 400;
+}
+
+.cover-chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 36px;
+}
+
+.cover-chip {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  color: rgba(247,243,238,.75);
+}
+
+/* ─────────────────────────────────────────
+   SHARED LAYOUT
+───────────────────────────────────────── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+section {
+  padding: 60px 0;
+}
+
+section + section {
+  border-top: 1px solid var(--border);
+}
+
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.section-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -.015em;
+  margin-bottom: 16px;
+}
+
+.section-lead {
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.75;
+  max-width: 620px;
+  font-weight: 300;
+}
+
+/* ─────────────────────────────────────────
+   POSITIONING / ABOUT
+───────────────────────────────────────── */
+#sobre {
+  background: #fff;
+}
+
+.positioning-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.pos-card {
+  background: var(--parch);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 28px 26px;
+}
+
+.pos-card-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.pos-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.pos-card-text {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+
+.differentials {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.diff-badge {
+  background: var(--amber-bg);
+  border: 1px solid rgba(196,98,42,.2);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--amber);
+  font-weight: 500;
+  display: flex; align-items: center; gap: 7px;
+}
+
+/* ─────────────────────────────────────────
+   SERVIÇO / METODOLOGIA
+───────────────────────────────────────── */
+#servico {
+  background: var(--parch);
+}
+
+.method-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.method-step {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 28px 22px;
+  position: relative;
+}
+
+.method-step-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--amber);
+  font-weight: 500;
+  letter-spacing: .1em;
+  margin-bottom: 12px;
+}
+
+.method-step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.method-step-text {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+
+.method-step-icon {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.audiences-row {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+.audience-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 12px;
+  flex: 1; min-width: 180px;
+}
+
+.audience-icon { font-size: 24px; }
+
+.audience-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.audience-sub {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  margin-top: 2px;
+}
+
+/* ─────────────────────────────────────────
+   CURRÍCULO / TRILHA
+───────────────────────────────────────── */
+#trilha {
+  background: #fff;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.module-card {
+  border-radius: var(--r-md);
+  padding: 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.module-card.basic {
+  background: linear-gradient(150deg, #eff6ff, #dbeafe);
+  border: 1px solid #bfdbfe;
+}
+
+.module-card.inter {
+  background: linear-gradient(150deg, #fffbeb, #fef3c7);
+  border: 1px solid #fde68a;
+}
+
+.module-card.adv {
+  background: linear-gradient(150deg, #f5f3ff, #ede9fe);
+  border: 1px solid #ddd6fe;
+}
+
+.module-card.ai-track {
+  background: linear-gradient(150deg, #ecfdf5, #d1fae5);
+  border: 1px solid #a7f3d0;
+}
+
+.module-level-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.module-card.basic .module-level-tag { color: #2563eb; }
+.module-card.inter .module-level-tag { color: #d97706; }
+.module-card.adv .module-level-tag { color: #7c3aed; }
+.module-card.ai-track .module-level-tag { color: #059669; }
+
+.module-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.module-card.basic .module-card-title { color: #1d4ed8; }
+.module-card.inter .module-card-title { color: #92400e; }
+.module-card.adv .module-card-title { color: #5b21b6; }
+.module-card.ai-track .module-card-title { color: #065f46; }
+
+.module-card-sessions {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.module-card.basic .module-card-sessions { color: #3b82f6; }
+.module-card.inter .module-card-sessions { color: #f59e0b; }
+.module-card.adv .module-card-sessions { color: #8b5cf6; }
+.module-card.ai-track .module-card-sessions { color: #10b981; }
+
+.module-topics {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+}
+
+.module-topics li {
+  font-size: 12.5px;
+  display: flex; align-items: flex-start; gap: 8px;
+  line-height: 1.45;
+}
+
+.module-card.basic .module-topics li { color: #1e40af; }
+.module-card.inter .module-topics li { color: #78350f; }
+.module-card.adv .module-topics li { color: #4c1d95; }
+.module-card.ai-track .module-topics li { color: #064e3b; }
+
+.module-topics li::before {
+  content: '-';
+  flex-shrink: 0;
+  opacity: .5;
+}
+
+.ai-highlight-bar {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: var(--r-md);
+  padding: 28px 30px;
+  margin-top: 24px;
+  display: flex; align-items: center; gap: 24px;
+  color: #f7f3ee;
+}
+
+.ai-bar-icon { font-size: 36px; flex-shrink: 0; }
+
+.ai-bar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #c4b5fd;
+}
+
+.ai-bar-text {
+  font-size: 13.5px;
+  color: rgba(247,243,238,.7);
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────
+   PROJETO / ENTREGAS
+───────────────────────────────────────── */
+#projeto {
+  background: var(--parch);
+}
+
+.deliverables-list {
+  display: flex; flex-direction: column; gap: 20px;
+  margin-top: 40px;
+}
+
+.deliv-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 28px 28px;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.deliv-icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.deliv-icon-wrap.orange { background: rgba(196,98,42,.1); }
+.deliv-icon-wrap.blue   { background: rgba(59,130,246,.1); }
+.deliv-icon-wrap.purple { background: rgba(139,92,246,.1); }
+.deliv-icon-wrap.green  { background: rgba(16,185,129,.1); }
+
+.deliv-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.deliv-desc {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.deliv-tags {
+  display: flex; flex-wrap: wrap; gap: 7px;
+}
+
+.deliv-tag {
+  background: var(--parch-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 11.5px;
+  color: var(--ink-2);
+  font-family: 'DM Mono', monospace;
+}
+
+/* ─────────────────────────────────────────
+   PACOTES / PREÇOS
+───────────────────────────────────────── */
+#pacotes {
+  background: var(--slate);
+  color: #f7f3ee;
+}
+
+#pacotes .section-eyebrow {
+  color: #fbbf24;
+}
+
+#pacotes .section-eyebrow::after {
+  background: linear-gradient(90deg, rgba(251,191,36,.3), transparent);
+}
+
+#pacotes .section-title {
+  color: #f7f3ee;
+}
+
+#pacotes .section-lead {
+  color: rgba(247,243,238,.65);
+}
+
+.pricing-table {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.pricing-card {
+  border-radius: var(--r-lg);
+  padding: 30px 24px;
+  position: relative;
+}
+
+.pricing-card.basic-pkg {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.pricing-card.mid-pkg {
+  background: linear-gradient(150deg, rgba(245,158,11,.12), rgba(245,158,11,.04));
+  border: 1.5px solid rgba(245,158,11,.4);
+  box-shadow: 0 0 40px rgba(245,158,11,.15);
+}
+
+.pricing-card.adv-pkg {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.popular-pill {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+  padding: 4px 16px; border-radius: 100px; white-space: nowrap;
+}
+
+.pkg-icon { font-size: 24px; margin-bottom: 12px; }
+
+.pkg-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f7f3ee;
+  margin-bottom: 4px;
+}
+
+.pkg-sessions {
+  font-size: 12px;
+  color: rgba(247,243,238,.5);
+  margin-bottom: 20px;
+}
+
+.pkg-discount {
+  display: inline-block;
+  background: rgba(74,222,128,.14);
+  border: 1px solid rgba(74,222,128,.3);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4ade80;
+  margin-bottom: 10px;
+}
+
+.pkg-full-price {
+  font-size: 13px;
+  color: rgba(247,243,238,.3);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.pkg-price-row {
+  display: flex; align-items: baseline; gap: 4px;
+  margin-bottom: 4px;
+}
+
+.pkg-currency { font-size: 16px; color: rgba(247,243,238,.6); }
+
+.pkg-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px; font-weight: 700; color: #f7f3ee; line-height: 1;
+}
+
+.pkg-period { font-size: 13px; color: rgba(247,243,238,.4); }
+
+.pkg-savings {
+  font-size: 12px; color: #4ade80; font-weight: 600; margin-bottom: 20px;
+}
+
+.pkg-divider {
+  height: 1px; background: rgba(255,255,255,.08); margin-bottom: 18px;
+}
+
+.pkg-features {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 8px;
+}
+
+.pkg-features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: rgba(247,243,238,.75); line-height: 1.45;
+}
+
+.feat-dot {
+  width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(74,222,128,.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: #4ade80; margin-top: 2px;
+}
+
+.avulsa-note {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r-md);
+  padding: 22px 28px;
+  margin-top: 24px;
+  display: flex; align-items: center; gap: 20px;
+}
+
+.avulsa-note-text { font-size: 14px; color: rgba(247,243,238,.7); }
+.avulsa-note-title { font-weight: 700; color: #fbbf24; margin-bottom: 4px; font-size: 15px; }
+
+.avulsa-prices {
+  display: flex; gap: 16px; flex-shrink: 0;
+}
+
+.avulsa-price-chip {
+  background: rgba(255,255,255,.06);
+  border-radius: 10px;
+  padding: 10px 16px;
+  text-align: center;
+}
+
+.avulsa-price-chip .label {
+  font-size: 10px; color: rgba(247,243,238,.4); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px;
+}
+
+.avulsa-price-chip .value {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700; color: #f7f3ee;
+}
+
+/* ─────────────────────────────────────────
+   COMPETÊNCIAS
+───────────────────────────────────────── */
+#competencias {
+  background: #fff;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.skill-group {
+  background: var(--parch);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px 22px;
+}
+
+.skill-group-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.skill-group-title::after {
+  content: '';
+  flex: 1; height: 1px; background: var(--border);
+}
+
+.skill-pills {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+
+.skill-pill {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 13px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────
+   CTA / FOOTER
+───────────────────────────────────────── */
+.cta-section {
+  background: linear-gradient(150deg, #1c1410, #2d1f17);
+  color: #f7f3ee;
+  padding: 60px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 600px 400px at 50% 50%, rgba(196,98,42,.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cta-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+
+.cta-pre {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(196,98,42,.8);
+  margin-bottom: 16px;
+}
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 700;
+  color: #f7f3ee;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.cta-sub {
+  font-size: 15px;
+  color: rgba(247,243,238,.6);
+  line-height: 1.65;
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+
+.cta-contacts {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 14px;
+}
+
+.cta-contact-item {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--r-sm);
+  padding: 16px 20px;
+  display: flex; align-items: center; gap: 14px;
+  min-width: 210px;
+}
+
+.cta-contact-icon-wrap {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: rgba(196,98,42,.22);
+  border: 1px solid rgba(196,98,42,.35);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.cta-contact-text { display: flex; flex-direction: column; gap: 3px; }
+.cta-contact-label {
+  font-size: 10px;
+  color: rgba(247,243,238,.45);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 600;
+  line-height: 1;
+}
+.cta-contact-value {
+  font-size: 14px;
+  color: #f7f3ee;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.footer-line {
+  background: #0f0b08;
+  color: rgba(247,243,238,.3);
+  padding: 18px 32px;
+  text-align: center;
+  font-size: 11.5px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-sep { opacity: .3; }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 720px) {
+  .cover { padding: 48px 24px 44px; }
+  .container { padding: 0 20px; }
+  section { padding: 44px 0; }
+  .positioning-grid,
+  .method-steps,
+  .modules-grid,
+  .pricing-table,
+  .skills-grid { grid-template-columns: 1fr; }
+  .deliv-item { grid-template-columns: 1fr; }
+  .avulsa-note { flex-direction: column; }
+  .avulsa-prices { justify-content: center; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     COVER
+═══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-texture"></div>
+  <div class="cover-inner">
+
+    <div class="cover-tag">
+      📂 Portfólio de Serviço · 2025
+    </div>
+
+    <p class="cover-service-name">Trilha de <em>Tecnologias Digitais</em><br>de Produtividade e Educação</p>
+    <p class="cover-acronym">[ TDPE · Trilha Digital ]</p>
+
+    <p class="cover-tagline">
+      Curso estruturado de Informática e Letramento em Inteligência Artificial - da navegação básica à aplicação criativa de IA no trabalho e no dia a dia.
+    </p>
+
+    <div class="cover-chips">
+      <span class="cover-chip">💻 Informática Aplicada</span>
+      <span class="cover-chip">🤖 Letramento em IA</span>
+      <span class="cover-chip">📋 Diagnóstico Individual</span>
+      <span class="cover-chip">🎓 Certificado Digital</span>
+      <span class="cover-chip">📲 Online & Presencial</span>
+    </div>
+
+    <div class="cover-author-block">
+      <div class="cover-avatar">G</div>
+      <div>
+        <p class="cover-author-name">Glenda Leitão Cople</p>
+        <p class="cover-author-role">Pedagoga · Especialista em EaD | Pós Graduação em Tecnologias Educacionais</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SOBRE O SERVIÇO
+═══════════════════════════════════════════ -->
+<section id="sobre" class="container-wrap">
+  <div class="container">
+    <p class="section-eyebrow">01 - Sobre o Projeto</p>
+    <h2 class="section-title">Uma trilha pensada para quem quer evoluir de verdade</h2>
+    <p class="section-lead">
+      A Trilha Digital TDPE é um serviço de tutoria personalizada em Informática e IA, desenvolvido para atender diferentes perfis de aprendizagem com um método que começa no diagnóstico individual e entrega um currículo adaptado às necessidades reais de cada aluno.
+    </p>
+
+    <div class="positioning-grid">
+      <div class="pos-card">
+        <div class="pos-card-icon">🎯</div>
+        <h3 class="pos-card-title">O Problema que Resolve</h3>
+        <p class="pos-card-text">A maioria dos cursos de informática é genérica e não acompanha o ritmo nem o contexto de quem aprende. Muitas pessoas chegam sem saber exatamente o que precisam - e saem com conteúdos que não usam.</p>
+      </div>
+      <div class="pos-card">
+        <div class="pos-card-icon">💡</div>
+        <h3 class="pos-card-title">A Solução Proposta</h3>
+        <p class="pos-card-text">Um diagnóstico inicial mapeado, um plano de aula adaptado ao nível real do aluno, e um currículo de 48 aulas que integra ferramentas práticas de produtividade com Letramento em Inteligência Artificial.</p>
+      </div>
+      <div class="pos-card">
+        <div class="pos-card-icon">🌐</div>
+        <h3 class="pos-card-title">Modalidades de Entrega</h3>
+        <p class="pos-card-text">Atendimento online (via Google Meet ou plataforma equivalente) e presencial no entorno de Vassouras/RJ, com pacotes mensais flexíveis ou aula avulsa conforme a necessidade.</p>
+      </div>
+      <div class="pos-card">
+        <div class="pos-card-icon">📈</div>
+        <h3 class="pos-card-title">Resultados Esperados</h3>
+        <p class="pos-card-text">Autonomia digital progressiva: o aluno sai apto a operar as principais ferramentas de escritório, navegar com segurança, e utilizar IAs generativas com pensamento crítico no seu contexto profissional.</p>
+      </div>
+    </div>
+
+    <div class="differentials">
+      <span class="diff-badge">✦ Diagnóstico individual antes de cada trilha</span>
+      <span class="diff-badge">✦ Currículo de 48 aulas documentado</span>
+      <span class="diff-badge">✦ IA integrada em todas as modalidades</span>
+      <span class="diff-badge">✦ Landing page com formulário de intake</span>
+      <span class="diff-badge">✦ Certificado digital ao final</span>
+      <span class="diff-badge">✦ Material de apoio digital incluso</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     METODOLOGIA
+═══════════════════════════════════════════ -->
+<section id="servico" class="container-wrap">
+  <div class="container">
+    <p class="section-eyebrow">02 - Metodologia</p>
+    <h2 class="section-title">Do diagnóstico à prática: como a trilha funciona</h2>
+    <p class="section-lead">
+      Cada aluno percorre um fluxo pensado para não pular etapas nem desperdiçar tempo com conteúdo que não precisa.
+    </p>
+
+    <div class="method-steps">
+      <div class="method-step">
+        <p class="method-step-num">PASSO 01</p>
+        <div class="method-step-icon">📋</div>
+        <h3 class="method-step-title">Formulário de Diagnóstico</h3>
+        <p class="method-step-text">Antes da primeira aula, o aluno responde um questionário estruturado com 21 questões que mapeiam habilidades em hardware, sistemas, pacote Office, IA e objetivos de aprendizagem - gerando uma recomendação automática de pacote.</p>
+      </div>
+      <div class="method-step">
+        <p class="method-step-num">PASSO 02</p>
+        <div class="method-step-icon">🗺️</div>
+        <h3 class="method-step-title">Plano de Aula Personalizado</h3>
+        <p class="method-step-text">Com base no diagnóstico, é gerado um plano de aula ajustado ao nível e aos objetivos do aluno, dentro do currículo de 48 módulos organizados em três níveis: Básico, Intermediário e Avançado.</p>
+      </div>
+      <div class="method-step">
+        <p class="method-step-num">PASSO 03</p>
+        <div class="method-step-icon">🚀</div>
+        <h3 class="method-step-title">Aulas + Suporte Contínuo</h3>
+        <p class="method-step-text">Sessões semanais práticas e contextualizadas, com material de apoio digital, exercícios dirigidos e acompanhamento entre aulas. Encerramento com certificado digital.</p>
+      </div>
+    </div>
+
+    <div class="audiences-row">
+      <div class="audience-card">
+        <span class="audience-icon">👩‍🏫</span>
+        <div>
+          <p class="audience-label">Professores</p>
+          <p class="audience-sub">Ferramentas para ensino digital e IA</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <span class="audience-icon">🎓</span>
+        <div>
+          <p class="audience-label">Estudantes</p>
+          <p class="audience-sub">Do básico ao uso avançado</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <span class="audience-icon">👵🏻</span>
+        <div>
+          <p class="audience-label">Terceira Idade</p>
+          <p class="audience-sub">Ritmo próprio, sem pressão</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <span class="audience-icon">💼</span>
+        <div>
+          <p class="audience-label">Profissionais</p>
+          <p class="audience-sub">Produtividade e IA no trabalho</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     TRILHA / CURRÍCULO
+═══════════════════════════════════════════ -->
+<section id="trilha" class="container-wrap">
+  <div class="container">
+    <p class="section-eyebrow">03 - Grade Curricular</p>
+    <h2 class="section-title">48 módulos em três níveis + trilha de IA integrada</h2>
+    <p class="section-lead">
+      Currículo completo desenvolvido do zero, cobrindo desde a introdução ao computador até projetos com IA generativa e automações de produtividade.
+    </p>
+
+    <div class="modules-grid">
+      <div class="module-card basic">
+        <p class="module-level-tag">📖 Nível 01</p>
+        <h3 class="module-card-title">Básico</h3>
+        <p class="module-card-sessions">16 aulas · 4 módulos</p>
+        <ul class="module-topics">
+          <li>Introdução ao computador e periféricos</li>
+          <li>Sistema Operacional Windows / Linux</li>
+          <li>Organização de arquivos e pastas</li>
+          <li>Internet segura e navegação</li>
+          <li>E-mail profissional (Gmail / Outlook)</li>
+          <li>Word / Google Docs - documentos básicos</li>
+          <li>Excel / Planilhas - dados e fórmulas simples</li>
+          <li>PowerPoint - apresentações essenciais</li>
+        </ul>
+      </div>
+
+      <div class="module-card inter">
+        <p class="module-level-tag">⚡ Nível 02</p>
+        <h3 class="module-card-title">Intermediário</h3>
+        <p class="module-card-sessions">16 aulas · 4 módulos</p>
+        <ul class="module-topics">
+          <li>Word avançado - estilos, índices, revisões</li>
+          <li>Excel - funções, gráficos e análise de dados</li>
+          <li>Google Workspace - Drive, Docs, Formulários</li>
+          <li>Comunicação digital profissional</li>
+          <li>Segurança digital e privacidade</li>
+          <li>Canva - design para leigos</li>
+          <li>Introdução ao IA conversacional</li>
+          <li>IA no cotidiano: texto, pesquisa, organização</li>
+        </ul>
+      </div>
+
+      <div class="module-card adv">
+        <p class="module-level-tag">🌟 Nível 03</p>
+        <h3 class="module-card-title">Avançado</h3>
+        <p class="module-card-sessions">16 aulas · 4 módulos</p>
+        <ul class="module-topics">
+          <li>Automações com IA (prompts avançados)</li>
+          <li>Ferramentas de produtividade IA: Copilot, Gemini</li>
+          <li>IA para imagens e criação de conteúdo</li>
+          <li>Projetos com IA generativa</li>
+          <li>Noções de análise de dados com IA</li>
+          <li>Apresentações impactantes com IA</li>
+          <li>Portfólio digital e presença profissional</li>
+          <li>Projeto final integrado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ai-highlight-bar">
+      <div class="ai-bar-icon">🤖</div>
+      <div>
+        <p class="ai-bar-title">Trilha de Letramento em IA - integrada em todos os níveis</p>
+        <p class="ai-bar-text">Desde o Básico, o aluno é apresentado às ferramentas de IA de forma contextualizada e progressiva: ChatGPT, Gemini, Copilot, Claude, geradores de imagem e automações. O objetivo não é só usar - é entender como funciona, com pensamento crítico e aplicação prática.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ENTREGAS / PROJETO
+═══════════════════════════════════════════ -->
+<section id="projeto" class="container-wrap">
+  <div class="container">
+    <p class="section-eyebrow">04 - Entregas do Projeto</p>
+    <h2 class="section-title">O que foi desenvolvido para estruturar o serviço</h2>
+    <p class="section-lead">
+      Além da grade curricular, o projeto envolveu o desenvolvimento completo da infraestrutura do serviço - da captação ao acompanhamento do aluno.
+    </p>
+
+    <div class="deliverables-list">
+
+      <div class="deliv-item">
+        <div class="deliv-icon-wrap orange">🌐</div>
+        <div>
+          <h3 class="deliv-title">Landing Page de Captação - TDPE</h3>
+          <p class="deliv-desc">Página completa de apresentação do serviço com design dark premium, exibição dos pacotes com precificação dinâmica, comparativo de modalidades online/presencial e CTA para o formulário de diagnóstico. Desenvolvida em HTML/CSS/JS puro e hospedada via Netlify.</p>
+          <div class="deliv-tags">
+            <span class="deliv-tag">HTML · CSS · JS</span>
+            <span class="deliv-tag">Design responsivo</span>
+            <span class="deliv-tag">Netlify Deploy</span>
+            <span class="deliv-tag">Fraunces + DM Sans</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deliv-item">
+        <div class="deliv-icon-wrap blue">📋</div>
+        <div>
+          <h3 class="deliv-title">Formulário de Diagnóstico Inicial Interativo</h3>
+          <p class="deliv-desc">Questionário com 21 perguntas em 6 seções (identificação, histórico, habilidades, IA, necessidades, organização), com validação dinâmica, barra de progresso e algoritmo de recomendação automática de pacote. Integração via Google Sheets para receber as respostas.</p>
+          <div class="deliv-tags">
+            <span class="deliv-tag">Diagnóstico adaptativo</span>
+            <span class="deliv-tag">Google Sheets API</span>
+            <span class="deliv-tag">Algoritmo de recomendação</span>
+            <span class="deliv-tag">UX form design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deliv-item">
+        <div class="deliv-icon-wrap purple">📚</div>
+        <div>
+          <h3 class="deliv-title">Plano de Aula Completo - 48 módulos documentados</h3>
+          <p class="deliv-desc">Currículo desenvolvido do zero com objetivos de aprendizagem, conteúdos programáticos, recursos didáticos e critérios de avaliação para cada módulo dos três níveis (Básico, Intermediário e Avançado), com trilha de IA integrada.</p>
+          <div class="deliv-tags">
+            <span class="deliv-tag">Planejamento pedagógico</span>
+            <span class="deliv-tag">Currículo estruturado</span>
+            <span class="deliv-tag">48 módulos</span>
+            <span class="deliv-tag">Letramento em IA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deliv-item">
+        <div class="deliv-icon-wrap green">📱</div>
+        <div>
+          <h3 class="deliv-title">Estratégia de Captação - Instagram & LinkedIn</h3>
+          <p class="deliv-desc">Desenvolvimento de copy, prompts de vídeo para Grok/Midjourney, posts de lançamento e posicionamento profissional para LinkedIn com headline diferenciadora, destacando o perfil "Pedagoga com background em TI" e especialização em EaD/tecnologias educacionais.</p>
+          <div class="deliv-tags">
+            <span class="deliv-tag">Marketing digital</span>
+            <span class="deliv-tag">LinkedIn positioning</span>
+            <span class="deliv-tag">Copywriting</span>
+            <span class="deliv-tag">Prompts de IA para vídeo</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PACOTES E PREÇOS
+═══════════════════════════════════════════ -->
+<section id="pacotes">
+  <div class="container">
+    <p class="section-eyebrow">05 - Pacotes & Valores</p>
+    <h2 class="section-title">Planos mensais com preços promocionais de lançamento</h2>
+    <p class="section-lead">
+      Todos os pacotes incluem material de apoio digital, certificado e plano de aula personalizado.
+    </p>
+
+    <div class="pricing-table">
+
+      <div class="pricing-card basic-pkg">
+        <p class="pkg-icon">📖</p>
+        <p class="pkg-name">Básico</p>
+        <p class="pkg-sessions">4 aulas de 1h por mês</p>
+        <p class="pkg-discount">−12% de desconto</p>
+        <p class="pkg-full-price">De R$ 200</p>
+        <div class="pkg-price-row">
+          <span class="pkg-currency">R$</span>
+          <span class="pkg-amount">176</span>
+          <span class="pkg-period">/mês</span>
+        </div>
+        <p class="pkg-savings">Economia de R$ 24</p>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li><span class="feat-dot">✓</span>4 aulas de 1h mensais</li>
+          <li><span class="feat-dot">✓</span>Plano de aula Básico completo</li>
+          <li><span class="feat-dot">✓</span>Introdução à informática</li>
+          <li><span class="feat-dot">✓</span>Fundamentos de IA</li>
+          <li><span class="feat-dot">✓</span>Material de apoio digital</li>
+          <li><span class="feat-dot">✓</span>Certificado Digital</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card mid-pkg">
+        <div class="popular-pill">⭐ MAIS POPULAR</div>
+        <p class="pkg-icon">⚡</p>
+        <p class="pkg-name">Intermediário</p>
+        <p class="pkg-sessions">8 aulas de 1h por mês</p>
+        <p class="pkg-discount">−20% de desconto</p>
+        <p class="pkg-full-price">De R$ 400</p>
+        <div class="pkg-price-row">
+          <span class="pkg-currency">R$</span>
+          <span class="pkg-amount">320</span>
+          <span class="pkg-period">/mês</span>
+        </div>
+        <p class="pkg-savings">Economia de R$ 80</p>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li><span class="feat-dot">✓</span>8 aulas de 1h mensais</li>
+          <li><span class="feat-dot">✓</span>Ferramentas digitais avançadas</li>
+          <li><span class="feat-dot">✓</span>IA aplicada ao cotidiano</li>
+          <li><span class="feat-dot">✓</span>Exercícios práticos dirigidos</li>
+          <li><span class="feat-dot">✓</span>Material de apoio digital</li>
+          <li><span class="feat-dot">✓</span>Certificado Digital</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card adv-pkg">
+        <p class="pkg-icon">🌟</p>
+        <p class="pkg-name">Avançado</p>
+        <p class="pkg-sessions">12 aulas de 1h por mês</p>
+        <p class="pkg-discount">−25% de desconto</p>
+        <p class="pkg-full-price">De R$ 600</p>
+        <div class="pkg-price-row">
+          <span class="pkg-currency">R$</span>
+          <span class="pkg-amount">450</span>
+          <span class="pkg-period">/mês</span>
+        </div>
+        <p class="pkg-savings">Economia de R$ 150</p>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li><span class="feat-dot">✓</span>12 aulas de 1h mensais</li>
+          <li><span class="feat-dot">✓</span>Projetos com IA generativa</li>
+          <li><span class="feat-dot">✓</span>Automações e produtividade</li>
+          <li><span class="feat-dot">✓</span>Projeto final integrado</li>
+          <li><span class="feat-dot">✓</span>Material de apoio digital</li>
+          <li><span class="feat-dot">✓</span>Certificado Digital</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="avulsa-note">
+      <div>
+        <p class="avulsa-note-title">⚡ Aula Avulsa - Pontual</p>
+        <p class="avulsa-note-text">Sem compromisso de pacote. Ideal para tirar dúvidas específicas ou experimentar antes de escolher um plano mensal.</p>
+      </div>
+      <div class="avulsa-prices">
+        <div class="avulsa-price-chip">
+          <p class="label">🖥️ Online</p>
+          <p class="value">R$ 50/h</p>
+        </div>
+        <div class="avulsa-price-chip">
+          <p class="label">📍 Presencial</p>
+          <p class="value">R$ 50/h + deslocamento</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     COMPETÊNCIAS
+═══════════════════════════════════════════ -->
+<section id="competencias" class="container-wrap">
+  <div class="container">
+    <p class="section-eyebrow">06 - Perfil Profissional</p>
+    <h2 class="section-title">Pedagoga com background em TI - uma combinação rara</h2>
+    <p class="section-lead">
+      A base técnica em TI somada à formação em Pedagogia e à Pós Graduação em EaD e Tecnologias Educacionais forma um perfil diferenciado: sabe o conteúdo e sabe ensinar.
+    </p>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <p class="skill-group-title">🎓 Formação Acadêmica</p>
+        <div class="skill-pills">
+          <span class="skill-pill">Licenciatura em Pedagogia</span>
+          <span class="skill-pill">Pós-Graduação EaD</span>
+          <span class="skill-pill">Tecnologias Digitais na Educação</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">💻 Background Técnico (TI)</p>
+        <div class="skill-pills">
+          <span class="skill-pill">Hardware & Sistemas</span>
+          <span class="skill-pill">Redes e Infraestrutura</span>
+          <span class="skill-pill">Pacote Office avançado</span>
+          <span class="skill-pill">Google Workspace</span>
+          <span class="skill-pill">Desenvolvimento Web básico</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">🤖 IA & Ferramentas Digitais</p>
+        <div class="skill-pills">
+          <span class="skill-pill">ChatGPT · Claude · Gemini</span>
+          <span class="skill-pill">Microsoft Copilot</span>
+          <span class="skill-pill">Canva IA · Midjourney</span>
+          <span class="skill-pill">Engenharia de Prompts</span>
+          <span class="skill-pill">Automação com IA</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">🏫 Experiência Profissional</p>
+        <div class="skill-pills">
+          <span class="skill-pill">Senac RJ</span>
+          <span class="skill-pill">IFRJ (estágio)</span>
+          <span class="skill-pill">Secretaria Escolar</span>
+          <span class="skill-pill">Educação a Distância</span>
+          <span class="skill-pill">Tutoria Individual</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CTA / CONTATO
+═══════════════════════════════════════════ -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <p class="cta-pre">Vamos conversar?</p>
+    <h2 class="cta-title">Pronto para começar sua trilha digital?</h2>
+    <p class="cta-sub">Entre em contato para agendar seu diagnóstico gratuito e descobrir qual pacote se encaixa melhor nos seus objetivos.</p>
+
+    <div class="cta-contacts">
+      <div class="cta-contact-item">
+        <div class="cta-contact-icon-wrap">📧</div>
+        <div class="cta-contact-text">
+          <span class="cta-contact-label">E-mail</span>
+          <span class="cta-contact-value"><a href="mailto:gsouzaleitao@gmail.com">gsouzaleitao@gmail.com</a></span>
+        </div>
+      </div>
+      <div class="cta-contact-item">
+        <div class="cta-contact-icon-wrap">📱</div>
+        <div class="cta-contact-text">
+          <span class="cta-contact-label">WhatsApp</span>
+          <span class="cta-contact-value">(24) 9 XXXX-XXXX</span>
+        </div>
+      </div>
+      <div class="cta-contact-item">
+        <div class="cta-contact-icon-wrap">📍</div>
+        <div class="cta-contact-text">
+          <span class="cta-contact-label">Localização</span>
+          <span class="cta-contact-value">Vassouras/RJ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-line">
+  <span>Portfólio de Serviço - Trilha Digital TDPE</span>
+  <span class="footer-sep">·</span>
+  <span>Glenda Leitão Cople</span>
+  <span class="footer-sep">·</span>
+  <span>Pedagoga  & Tecnologia Educacional</span>
+  <span class="footer-sep">·</span>
+  <span>© 2025</span>
+</div>
+
+</body>
+</html>
