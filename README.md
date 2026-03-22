@@ -15,7 +15,7 @@ O projeto foi criado para atender adultos, idosos e profissionais que desejam de
 
 ## 🌐 Acesse o Portfólio
 
-🔗 **[glenda-leitao.github.io/trilha-digital](https://glenda-leitao.github.io/trilha-digital)**  
+🔗 **[glenda-leitao.github.io/trilha-digital](https://gsouzaleitao.github.io/trilhadigital/)**  
 *(substitua pelo link real após publicação no GitHub Pages)*
 
 ---
